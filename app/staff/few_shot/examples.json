@@ -1,0 +1,27 @@
+[
+  {
+    "question": "List all employees and their departments",
+    "sql": "SELECT e.name, d.department_name FROM employees e JOIN departments d ON e.department_id = d.id",
+    "explanation": "Join employees and departments tables to get employee names with their department names"
+  },
+  {
+    "question": "What is the average salary by department?",
+    "sql": "SELECT d.department_name, AVG(e.salary) as avg_salary FROM employees e JOIN departments d ON e.department_id = d.id GROUP BY d.department_name",
+    "explanation": "Group employees by department and calculate average salary for each department"
+  },
+  {
+    "question": "Show me all products with price greater than 100",
+    "sql": "SELECT product_name, price FROM products WHERE price > 100",
+    "explanation": "Filter products table to show only items with price above 100"
+  },
+  {
+    "question": "Count the number of orders per customer",
+    "sql": "SELECT customer_id, COUNT(*) as order_count FROM orders GROUP BY customer_id",
+    "explanation": "Group orders by customer and count the number of orders for each customer"
+  },
+  {
+    "question": "Find the top 5 customers by total order value",
+    "sql": "SELECT customer_id, SUM(order_total) as total_value FROM orders GROUP BY customer_id ORDER BY total_value DESC LIMIT 5",
+    "explanation": "Sum order totals by customer, order by total value descending, and limit to top 5"
+  }
+]
